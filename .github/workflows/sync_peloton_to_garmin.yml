@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     # The type of runner that the job will run on
     container: 
-      image:  hottram/peloton-to-garmin:console-stable
+      image:  philosowaffle/peloton-to-garmin:console-stable
     steps:
     - name: Set env
       run: echo "OUTPUT_DIR=/app/output" >> $GITHUB_ENV
@@ -31,6 +31,9 @@ jobs:
       run: |
         cat <<EOT > /app/configuration.local.json 
         {
+          "Developer": {
+             "UserAgent": "GCM-iOS-5.7.2.1"
+          },
           "App": {
             "EnablePolling": false
           },
